@@ -20,6 +20,12 @@ $h1: 16px;
           border-radius: $radius;
 }
 
+@mixin child {
+    margin: auto;
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -42,13 +48,12 @@ $h1: 16px;
 }
 
 .child {
-    margin: auto;
-    flex-grow: 1;
-    flex-basis: auto;
+    @include child
 }
 
 section {
-    @extend .child
+    max-width: $mobile-screen-width;
+    @include child
 }
 
 section {
@@ -61,17 +66,14 @@ section {
     padding-left: 10px;
 }
 
-img p {
+img {
     max-width: $mobile-screen-width;
     width: 100%;
-}
-
-img {
     height: auto;
 }
 
 h1 {
-    font-size: $h1 + 3vw;
+    font-size: calc(16px + 3vw);
     font-family: $font-header
 }
 
@@ -93,19 +95,6 @@ p {
 
 img:hover {
     opacity:0.5;
-}
-
-@media all and (max-width: $desktop-screen-width) {
-    .parent {
-        flex-flow: row wrap;
-        flex-direction: row;
-    }
-}
-
-@media all and (max-width: $tablet-screen-width) {
-    .parent {
-        justify-content: space-around;
-    }
 }
 
 @media all and (max-width: $mobile-screen-width) {
