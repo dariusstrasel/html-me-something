@@ -1,6 +1,24 @@
+// Fonts
 $font-header: 'Fredericka the Great', cursive;
 $font-subheader: 'Lato', sans-serif;
 $font-body: 'Quicksand', sans-serif;
+
+// Colors
+$grey-transparent: rgba(128, 128, 128, .5);
+
+// Sizing
+$mobile-screen-width: 600px;
+$tablet-screen-width: 800px;
+$desktop-screen-width: 1400px;
+$h1: 16px;
+
+// Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
 
 * {
     box-sizing: border-box;
@@ -30,14 +48,12 @@ $font-body: 'Quicksand', sans-serif;
 }
 
 section {
-    margin: auto;
-    flex-grow: 1;
-    flex-basis: auto;
+    @extend .child
 }
 
 section {
-    border: solid rgba(128, 128, 128, .5) thin;
-    border-radius: 2px;
+    border: solid $grey-transparent thin;
+    @include border-radius(2px);
     box-shadow: 1px 5px 10px #888888;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -45,19 +61,17 @@ section {
     padding-left: 10px;
 }
 
-img {
-    max-width: 600px;
+img p {
+    max-width: $mobile-screen-width;
     width: 100%;
+}
+
+img {
     height: auto;
 }
 
-p {
-    max-width: 600px;
-    width: 100%;
-}
-
 h1 {
-    font-size: calc(16px + 3vw);
+    font-size: $h1 + 3vw;
     font-family: $font-header
 }
 
@@ -74,27 +88,27 @@ p {
 }
 
 .title {
-    border-bottom: solid rgba(128, 128, 128, .5) thin;
+    border-bottom: $grey-transparent thin;
 }
 
 img:hover {
     opacity:0.5;
 }
 
-@media all and (max-width: 1400px) {
-    .flex-parent {
+@media all and (max-width: $desktop-screen-width) {
+    .parent {
         flex-flow: row wrap;
         flex-direction: row;
     }
 }
 
-@media all and (max-width: 800px) {
-    .flex-parent {
+@media all and (max-width: $tablet-screen-width) {
+    .parent {
         justify-content: space-around;
     }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: $mobile-screen-width) {
     .parent {
         flex-direction: column;
         justify-content: center;
