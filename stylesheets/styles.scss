@@ -1,3 +1,7 @@
+$font-header: 'Fredericka the Great', cursive;
+$font-subheader: 'Lato', sans-serif;
+$font-body: 'Quicksand', sans-serif;
+
 * {
     box-sizing: border-box;
 }
@@ -54,15 +58,15 @@ p {
 
 h1 {
     font-size: calc(16px + 3vw);
-    font-family: 'Fredericka the Great', cursive;
+    font-family: $font-header
 }
 
 h2 {
-    font-family: 'Lato', sans-serif;
+    font-family: $font-subheader
 }
 
 p {
-    font-family: 'Quicksand', sans-serif;
+    font-family: $font-body
 }
 
 #example {
